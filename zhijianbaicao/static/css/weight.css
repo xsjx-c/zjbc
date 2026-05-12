@@ -1,0 +1,493 @@
+/* 指尖百草页面样式 */
+
+/* 导航区域样式 */
+.nav-area {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* 标题卡片样式 */
+.title-card {
+    border-bottom: 3px solid #1e40af;
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+}
+
+.title-card .section-title {
+    color: #1e40af;
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+}
+
+.title-card .section-description {
+    color: #1e40af;
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* 内容包装器 - 左侧面板和实时称重并排 */
+.content-wrapper {
+    display: flex;
+    gap: 2rem;
+    margin-bottom: 2rem;
+}
+
+/* 左侧面板 */
+.left-panel {
+    flex: 1;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* 实时称重面板（右侧） */
+.scale-section {
+    width: 400px;
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 0;
+}
+
+/* 底部面板 */
+.bottom-panel {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.panel-section {
+    margin-bottom: 2rem;
+}
+
+.panel-section h3 {
+    color: #0c4a6e;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 2px solid #e0f2fe;
+    font-size: 1.2rem;
+}
+
+/* 药方选择区域样式 */
+.formula-select {
+    display: flex;
+    gap: 0.5rem;
+    margin-bottom: 1rem;
+}
+
+.formula-select input {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.formula-dropdown {
+    display: flex;
+    gap: 0.5rem;
+}
+
+.formula-dropdown select {
+    flex: 1;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+/* 按钮通用样式 */
+.search-btn,
+.load-btn,
+.add-btn,
+.clear-btn,
+.order-btn {
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: 4px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.search-btn {
+    background-color: #1e40af;
+    color: white;
+}
+
+.search-btn:hover {
+    background-color: #0c4a6e;
+}
+
+.load-btn {
+    background-color: #1e40af;
+    color: white;
+}
+
+.load-btn:hover {
+    background-color: #0c4a6e;
+}
+
+.add-btn {
+    background-color: #1e40af;
+    color: white;
+}
+
+.add-btn:hover {
+    background-color: #0c4a6e;
+}
+
+.clear-btn {
+    background-color: #6c757d;
+    color: white;
+}
+
+.clear-btn:hover {
+    background-color: #545b62;
+}
+
+.order-btn {
+    background-color: #1e40af;
+    color: white;
+}
+
+.order-btn:hover {
+    background-color: #0c4a6e;
+}
+
+/* 称重表单样式 */
+.weight-form {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: #333;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    margin-bottom: 0.5rem;
+}
+
+.form-group input[readonly] {
+    background-color: #f8f9fa;
+    cursor: not-allowed;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-actions {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+/* 药材表格样式 */
+.herb-table-container {
+    background-color: white;
+    border-radius: 6px;
+    overflow: hidden;
+    overflow-x: auto;
+    margin-top: 1rem;
+}
+
+.herb-table {
+    width: 100%;
+    border-collapse: collapse;
+}
+
+.herb-table th,
+.herb-table td {
+    padding: 0.8rem;
+    text-align: left;
+    border-bottom: 1px solid #eee;
+}
+
+.herb-table th {
+    background-color: #f8f9fa;
+    font-weight: bold;
+    color: #1a5324;
+}
+
+.herb-table tbody tr:hover {
+    background-color: #f8f9fa;
+}
+
+.empty-message {
+    text-align: center !important;
+    color: #666;
+    font-style: italic;
+    padding: 2rem !important;
+}
+
+.weigh-btn {
+    background-color: #17a2b8;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    margin-right: 8px;
+    transition: background-color 0.2s;
+}
+
+.weigh-btn:hover {
+    background-color: #138496;
+}
+
+.delete-btn {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 0.3rem 0.6rem;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: background-color 0.2s;
+}
+
+.delete-btn:hover {
+    background-color: #c82333;
+}
+
+/* 重量突出显示 */
+.weight-highlight {
+    font-weight: 700;
+    color: #1e40af;
+    font-size: 1.1em;
+}
+
+/* 方剂加载的药材样式 */
+.formula-herb-row {
+    background-color: #f0fdf4;
+}
+
+.formula-herb-name {
+    font-weight: 600;
+    color: #1e40af;
+}
+
+.formula-weight {
+    color: #28a745;
+    font-weight: 800;
+    font-size: 1.2em;
+    position: relative;
+}
+
+.formula-weight::after {
+    content: 'g';
+    font-size: 0.8em;
+    margin-left: 2px;
+    color: #1e40af;
+}
+
+/* 订单汇总样式 */
+.order-summary {
+    background-color: white;
+    padding: 1rem;
+    border-radius: 6px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid #eee;
+}
+
+.summary-item label {
+    font-weight: bold;
+    color: #333;
+}
+
+.summary-item.total-amount {
+    margin-bottom: 1.5rem;
+    padding-bottom: 1rem;
+    border-bottom: 2px solid #0c4a6e;
+}
+
+.summary-item.total-amount label {
+    font-size: 1.1rem;
+    color: #0c4a6e;
+}
+
+.summary-item.total-amount span {
+    font-size: 1.3rem;
+    font-weight: bold;
+    color: #1e40af;
+}
+
+.summary-actions {
+    display: flex;
+    gap: 0.5rem;
+    justify-content: flex-end;
+}
+
+/* 称盘部分样式 */
+.scale-section {
+    background-color: #f8f9fa;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    margin-bottom: 2rem;
+}
+
+.scale-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* 称重显示 */
+.scale-display {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.weight-value {
+    font-size: 4rem;
+    font-weight: bold;
+    color: #1e40af;
+    font-family: 'Courier New', monospace;
+}
+
+.weight-unit {
+    font-size: 1.5rem;
+    color: #666;
+    margin-top: 0.5rem;
+}
+
+/* 称重可视化 */
+.scale-visual {
+    margin-bottom: 2rem;
+}
+
+.scale-plate {
+    width: 200px;
+    height: 200px;
+    background-color: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.scale-indicator {
+    width: 4px;
+    height: 80%;
+    background-color: #dc3545;
+    position: absolute;
+    bottom: 0;
+    transition: height 0.3s ease;
+}
+
+/* 操作按钮 */
+.scale-actions {
+    display: flex;
+    gap: 1rem;
+    margin-bottom: 2rem;
+}
+
+.action-btn {
+    padding: 0.8rem 1.5rem;
+    border: none;
+    border-radius: 6px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: all 0.3s;
+}
+
+.tare-btn {
+    background-color: #ffc107;
+    color: #333;
+}
+
+.tare-btn:hover {
+    background-color: #e0a800;
+}
+
+.save-btn {
+    background-color: #28a745;
+    color: white;
+}
+
+.save-btn:hover {
+    background-color: #218838;
+}
+
+/* 提示信息 */
+.scale-tips {
+    text-align: center;
+    color: #666;
+}
+
+.scale-tips p {
+    margin: 0.5rem 0;
+    font-size: 0.9rem;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+    .content-wrapper {
+        flex-direction: column;
+    }
+    
+    .scale-section {
+        width: 100%;
+    }
+    
+    .formula-select,
+    .formula-dropdown,
+    .form-actions,
+    .summary-actions,
+    .scale-actions {
+        flex-direction: column;
+        width: 100%;
+    }
+    
+    .scale-actions {
+        gap: 0.5rem;
+    }
+    
+    .action-btn,
+    .search-btn,
+    .load-btn,
+    .add-btn,
+    .clear-btn,
+    .order-btn {
+        width: 100%;
+    }
+    
+    .herb-table {
+        font-size: 0.9rem;
+    }
+    
+    .herb-table th,
+    .herb-table td {
+        padding: 0.5rem;
+    }
+}

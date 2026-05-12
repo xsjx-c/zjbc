@@ -1,0 +1,14 @@
+{
+    "users": [
+        {
+            "username": "陈先生",
+            "password": "scrypt:32768:8:1$AP24b5Wwt0IY0QRq$a1a633516d88897e6d0b6c4324ce0b54adac3ef7f32244a8e5176be86366a52f617c099c91b833e9f222848a2f69805db692761c7a83d3589e9c71c6a7c58e19",
+            "email": "cqy148635@qq.com"
+        },
+        {
+            "username": "吴女士",
+            "password": "scrypt:32768:8:1$0UEaK1r33DXY0P2i$a026f277cf6b77614ca4756a33b5afd945af8fe03dace1a7bae1dff02bb01f8f84626706643a7eabfba0aeaa37e1a6d1626fd6b56adba6a06ef18cba1800047e",
+            "email": "wns@qq.com"
+        }
+    ]
+}

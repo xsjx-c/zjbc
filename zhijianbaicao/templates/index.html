@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智鉴百草 - 视语协同的中医健康智诊智验服务平台</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css') }}">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="/" class="navbar-logo">
+                    <img src="{{ url_for('static', filename='images/herbs/image.png') }}" alt="智鉴百草">
+                    <span>智鉴百草</span>
+                </a>
+                <div class="nav-actions">
+                    {% if username %}
+                        <span class="welcome-text">欢迎，{{ username }}</span>
+                        <a href="/logout" class="nav-btn">登出</a>
+                    {% else %}
+                        <a href="/login" class="nav-btn">登录</a>
+                        <a href="/register" class="nav-btn">注册</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="nav-area">
+                <ul class="navbar-links">
+                    <li><a href="/" class="active">首页</a></li>
+                    <li><a href="/zhijianbaicao">智鉴百草</a></li>
+                    <li><a href="/formula">药方智验</a></li>
+                    <li><a href="/voice">AI预诊</a></li>
+                    <li><a href="/knowledge_base">中药知识库</a></li>
+                    <li><a href="/weight">订单汇总</a></li>
+                    <li><a href="/my_clinic">我的诊室</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <!-- 头部搜索区域 -->
+    <section class="header-section">
+        <div class="container">
+            <div class="header-content">
+                <h1>中医健康智诊智验服务平台</h1>
+                <p>融合AI技术与传统中医药智慧，提供智能识别、方剂分析与诊疗建议</p>
+                
+                <!-- 搜索框 -->
+                <div class="search-container">
+                    <input type="text" placeholder="搜索中药材、方剂或疾病..." class="search-input">
+                    <button class="search-btn">搜索</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 右侧边栏 -->
+    <aside class="right-sidebar">
+        <div class="sidebar-content">
+            <a href="#" class="sidebar-item app-download" data-tooltip="智鉴百草APP">
+                <div class="sidebar-icon">📱</div>
+                <span class="sidebar-text">智鉴百草APP</span>
+            </a>
+            <a href="#" class="sidebar-item data-download" data-tooltip="数据下载">
+                <div class="sidebar-icon">💾</div>
+                <span class="sidebar-text">数据下载</span>
+            </a>
+            <a href="#" class="sidebar-item contact-us" data-tooltip="联系我们">
+                <div class="sidebar-icon">📞</div>
+                <span class="sidebar-text">联系我们</span>
+            </a>
+            <a href="#" class="sidebar-item online-consult" data-tooltip="在线咨询">
+                <div class="sidebar-icon">💬</div>
+                <span class="sidebar-text">在线咨询</span>
+            </a>
+        </div>
+    </aside>    
+
+    <!-- 功能库区域 -->
+    <section class="function-library">
+        <div class="container">
+            <div class="knowledge-grid">
+                <a href="/zhijianbaicao" class="knowledge-item">
+                    <div class="knowledge-icon">🧠</div>
+                    <h3>智鉴百草</h3>
+                    <p>结合图片上传和摄像头识别，智能识别中草药种类</p>
+                </a>
+                <a href="/formula" class="knowledge-item">
+                    <div class="knowledge-icon">📜</div>
+                    <h3>药方智验</h3>
+                    <p>识别方剂中的药材，验证药方完整性</p>
+                </a>
+                <a href="/voice" class="knowledge-item">
+                    <div class="knowledge-icon">🎤</div>
+                    <h3>AI预诊</h3>
+                    <p>通过语音交互，充分预诊，动态更新健康报告</p>
+                </a>
+                <a href="/knowledge_base" class="knowledge-item">
+                    <div class="knowledge-icon">📊</div>
+                    <h3>中药知识库</h3>
+                    <p>海量中医药数据库支持，提供全面参考</p>
+                </a>
+                <a href="/weight" class="knowledge-item">
+                    <div class="knowledge-icon">⚖️</div>
+                    <h3>订单汇总</h3>
+                    <p>智能称重系统，辅助精准抓取中药材</p>
+                </a>
+                <a href="/my_clinic" class="knowledge-item">
+                    <div class="knowledge-icon">🏥</div>
+                    <h3>我的诊室</h3>
+                    <p>健康管理，随时掌握，数据可视化分析</p>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于系统 -->
+    <section class="about">
+        <div class="container">
+            <div class="section-header">
+                <h2>关于系统</h2>
+            </div>
+            <div class="about-content">
+                <p>智鉴百草系统基于深度学习技术，结合传统中医药知识，提供智能化的中草药识别和方剂鉴定功能。系统采用先进的ConvNeXt和YOLO模型，能够准确识别多种中草药，并提供详细的药用信息和相关药方。</p>
+                <p>本系统旨在促进中医药知识的传播和应用，为中医药学习者和从业者提供便捷的工具。</p>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 智鉴百草 - 视语协同的中医健康智诊智验服务平台</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+</body>
+</html>

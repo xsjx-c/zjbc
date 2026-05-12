@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智鉴百草 - AI预诊</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/voice.css') }}">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="/" class="navbar-logo">
+                    <img src="{{ url_for('static', filename='images/herbs/image.png') }}" alt="智鉴百草">
+                    <span>智鉴百草</span>
+                </a>
+                <div class="nav-actions">
+                    {% if username %}
+                        <span class="welcome-text">欢迎，{{ username }}</span>
+                        <span id="currentUser" style="display: none;">{{ username }}</span>
+                        <a href="/logout" class="nav-btn">登出</a>
+                    {% else %}
+                        <a href="/login" class="nav-btn">登录</a>
+                        <a href="/register" class="nav-btn">注册</a>
+                    {% endif %}
+                </div>
+            </div>
+            <div class="nav-area">
+                <ul class="navbar-links">
+                    <li><a href="/" >首页</a></li>
+                    <li><a href="/zhijianbaicao">智鉴百草</a></li>
+                    <li><a href="/formula">药方智验</a></li>
+                    <li><a href="/voice" class="active">AI预诊</a></li>
+                    <li><a href="/knowledge_base">中药知识库</a></li>
+                    <li><a href="/weight" >订单汇总</a></li>
+                    <li><a href="/my_clinic">我的诊室</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="voice-section">
+            <div class="container">
+                <h2>AI中医预诊</h2>
+                <p>充分预诊，跟进健康状况，生成报告</p>
+                
+                <!-- AI预诊主容器 -->
+                <div class="ai-consult-container">
+                    <!-- 左侧语音对话区域 -->
+                    <div class="voice-dialog-area">
+                        <h3>语音对话框</h3>
+                        <div class="voice-dialog-box">
+                            <div class="voice-status" id="voiceStatus">准备对话...</div>
+                            <div class="voice-wave" id="voiceWave"></div>
+                            <button id="startDialog" class="btn btn-primary start-dialog-btn">开始对话</button>
+                        </div>
+                    </div>
+                    
+                    <!-- 右侧聊天记录面板 -->
+                    <div class="chat-record-panel">
+                        <h3>预诊聊天记录面板</h3>
+                        <div style="display: flex; justify-content: flex-end; margin-bottom: 10px;">
+                            <button id="clearChatBtn" class="btn btn-secondary" style="padding: 5px 15px;">清空聊天记录</button>
+                        </div>
+                        <div class="chat-messages" id="chatMessages">
+                            <!-- 对话消息将动态生成在此处 -->
+                        </div>
+                        <!-- 通话状态指示器 -->
+                        <div class="call-status" id="callStatus">
+                            <span class="status-indicator" id="statusIndicator"></span>
+                            <span id="statusText">未通话</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 中央控制按钮 -->
+                    <div class="center-control">
+                        <div class="control-circle" id="controlCircle">
+                            <span class="control-icon" id="controlIcon">🎤</span>
+                        </div>
+                    </div>
+                    
+                    <!-- 底部预诊报告区域 -->
+                    <div class="report-area">
+                        <h3>预诊报告</h3>
+                        <div class="report-content" id="reportContent">
+                            <p>通话结束后点击生成报告按钮，系统将为您生成健康报告</p>
+                        </div>
+                        <div class="report-actions">
+                            <button id="generateReport" class="btn btn-primary" disabled>生成报告</button>
+                            <button id="printReport" class="btn btn-secondary" disabled>打印报告</button>
+                            <button id="endCall" class="btn btn-danger" disabled>结束对话</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2025 智鉴百草 - 视语协同的中医健康智诊智验服务平台</p>
+        </div>
+    </footer>
+
+    <script src="{{ url_for('static', filename='js/voice.js') }}"></script>
+</body>
+</html>

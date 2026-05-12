@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>智鉴百草 - 药方智验</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/formula.css') }}">
+</head>
+<body>
+    <!-- 顶部导航栏 -->
+    <header class="navbar">
+        <div class="container">
+            <div class="logo-area">
+                <a href="/" class="navbar-logo">
+                    <img src="{{ url_for('static', filename='images/herbs/image.png') }}" alt="智鉴百草">
+                    <span>智鉴百草</span>
+                </a>
+            </div>
+            <div class="nav-area">
+                <ul class="navbar-links">
+                    <li><a href="/">首页</a></li>
+                    <li><a href="/zhijianbaicao">智鉴百草</a></li>
+                    <li><a href="/formula" class="active">药方智验</a></li>
+                    <li><a href="/voice">AI预诊</a></li>
+                    <li><a href="/knowledge_base">中药知识库</a></li>
+                    <li><a href="/weight">订单汇总</a></li>
+                    <li><a href="/my_clinic">我的诊室</a></li>
+                </ul>
+            </div>
+        </div>
+    </header>
+    
+    <main class="formula-container">
+        <div class="container">
+            <!-- 顶部标题和搜索区域 -->
+            <div class="title-card">
+                <div class="title-content">
+                    <h2 class="section-title">药方智验</h2>
+                    <p class="section-description">通过摄像头识别中草药，并进行方剂比对，检测药材的完整度</p>
+                </div>
+                <div class="search-section">
+                    <div class="search-item">
+                        <label for="formulaName">方剂名称:</label>
+                        <div class="search-with-clear">
+                            <input type="text" id="formulaName" placeholder="请输入方剂名称">
+                            <button class="clear-btn" onclick="clearInput('formulaName')" id="clearFormula">×</button>
+                        </div>
+                        <button id="searchFormula">搜索</button>
+                    </div>
+                    <div class="search-item">
+                        <label for="herbName">药材组成:</label>
+                        <div class="search-with-clear">
+                            <input type="text" id="herbName" placeholder="请输入药材名称">
+                            <button class="clear-btn" onclick="clearInput('herbName')" id="clearHerb">×</button>
+                        </div>
+                        <button id="searchHerb">搜索</button>
+                    </div>
+                </div>
+            </div>
+            
+            
+
+            <!-- 主体内容区域 -->
+            <section class="content-section">
+                <!-- 左侧区域：药方库和所选药方信息 -->
+                <div class="left-panel">
+                    <div class="formula-info">
+                        <div class="library-button" id="openFormulaLibrary">
+                            <img src="{{ url_for('static', filename='images/image.png') }}" alt="药方百宝箱">
+                        </div>
+                        <div id="selectedFormulaInfo"></div>
+                    </div>
+                </div>
+                
+                <!-- 右侧区域：摄像头 -->
+                <div class="right-panel">
+                    <div class="camera-container">
+                        <div class="camera-area">
+                        <div class="camera-placeholder">摄像头区域</div>
+                        <video id="cameraVideo" autoplay playsinline></video>
+                        <canvas id="cameraCanvas"></canvas>
+                        <canvas id="detectionCanvas"></canvas>
+                    </div>
+                        <div class="camera-controls">
+                            <button id="startCamera" class="btn-primary">开启摄像头</button>
+                            <button id="detectBtn" class="btn-secondary" disabled>开始检测</button>
+                            <button id="stopDetect" class="btn-danger" disabled>停止检测</button>
+                            <button id="finishBtn" class="btn-success" disabled>识别完成</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+    
+    <!-- 识别报告区域 -->
+    <div id="results-section" class="results-section">
+      <div class="results-header">
+        <h3 id="summary-title">方剂鉴定结果</h3>
+        <button id="play-voice-btn" class="play-voice-btn">播放语音</button>
+      </div>
+      
+      <div class="results-content">
+        <!-- 识别到的药材 -->
+        <div class="result-card detected-herbs-card">
+          <h4><i class="icon-check-circle"></i> 识别到的药材</h4>
+          <ul id="detected-herbs" class="herb-list">
+            <!-- 这里将通过JavaScript动态填充 -->
+          </ul>
+          <div class="sync-to-order-container">
+            <button id="syncToOrderBtn" class="sync-to-order-btn">同步到订单汇总</button>
+        </div>
+        </div>
+        
+        <!-- 识别到的正确药材 -->
+        <div class="result-card correct-herbs-card">
+          <h4><i class="icon-check-circle"></i> 识别到的正确药材</h4>
+          <ul id="correct-herbs" class="herb-list">
+            <!-- 这里将通过JavaScript动态填充 -->
+          </ul>
+        </div>
+        
+        <!-- 缺少的药材 -->
+        <div class="result-card missing-herbs-card">
+          <h4><i class="icon-minus-circle"></i> 缺少的药材</h4>
+          <ul id="missing-herbs" class="herb-list">
+            <!-- 这里将通过JavaScript动态填充 -->
+          </ul>
+        </div>
+        
+        <!-- 多余的药材 -->
+        <div class="result-card extra-herbs-card">
+          <h4><i class="icon-plus-circle"></i> 多余的药材</h4>
+          <ul id="extra-herbs" class="herb-list">
+            <!-- 这里将通过JavaScript动态填充 -->
+          </ul>
+        </div>
+        
+      </div>
+      
+      <div style="display: none;">
+        <p id="voice-message"></p>
+      </div>
+    </div>
+  </main>
+
+
+
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+  <script src="{{ url_for('static', filename='js/formula.js') }}"></script>
+  
+  <footer>
+    <div class="footer-content">
+        <p>&copy; 2025 智鉴百草 - 视语协同的中医健康智诊智验服务平台</p>
+    </div>
+  </footer>
+</body>
+</html>
